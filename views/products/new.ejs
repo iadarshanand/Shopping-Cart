@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <form action="/products" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name: </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control"
+          placeholder="Product Name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="img" class="form-label">Image: </label>
+        <input
+          type="text"
+          name="img"
+          id="img"
+          class="form-control"
+          placeholder="Url of Image"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price: </label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">$</span>
+          <input
+            type="Number"
+            name="price"
+            id="price"
+            step="0.01"
+            class="form-control"
+            placeholder="Price in $"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description: </label>
+        <textarea
+          class="form-control"
+          name="desc"
+          id="desc"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <button class="btn btn-success" type="submit">Add</button>
+    </form>
+  </div>
+</div>

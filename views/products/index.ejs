@@ -1,0 +1,62 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="container-fluid">
+  <%-include('../partials/flash.ejs')%>
+  <section id="heading" class="d-flex p-3 m-3">
+    <h4 class="display-5">
+      <i class="fab fa-shopify" style="margin-right: 20px"></i>Shopping-Cart
+    </h4>
+  </section>
+  <div class="row">
+    <%for(let product of products){ %>
+
+    <div class="col-3 lg Products">
+      <div
+        class="card shadow p-2 mb-5 bg-white rounded mx-auto"
+        style="width: 20rem"
+      >
+        <div class="position-relative">
+          <img
+            src="<%= product.img %>"
+            class="img-fluid"
+            style="height: 200px; width: 19rem"
+            alt="..."
+          />
+
+          <div
+            class="position-absolute bottom-0 px-3 m-1"
+            style="left: 5px; background-color: white; border-radius: 10px"
+          >
+            <%=product.avgRating%>
+            <i class="fas fa-solid fa-star" style="color: gold"></i> |
+            <%=product.reviews.length%>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title"><%=product.name%></h5>
+            <!-- <button> -->
+            <i class="far fa-thin fa-heart"></i>
+            <!-- </button> -->
+          </div>
+
+          <p class="card-text fw-light">
+            <%=product.desc.substring(0,100)%>...
+          </p>
+          <p class="card-text text-muted">
+            <%=product.reviews.length%> reviews
+          </p>
+          <h6 class="card-title">
+            <span class="text-decoration-line-through text-muted fs-6"
+              >Rs.<%=product.price%></span
+            >
+            <span>Rs.<%=(product.price)/2%></span>
+            <span style="color: goldenrod">(50% OFF)</span>
+          </h6>
+          <a href="/products/<%=product._id%>" class="btn">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    <%}%>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --main_color: #0077b6;
+}
+.cd {
+  margin-top: 5rem;
+}
+
+.Products .btn {
+  background-color: var(--main_color);
+  color: white;
+}
+
+/* //Navbar */
+.name-tag {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+/* Shopping kart heading */
+#heading {
+  font-weight: lighter;
+  font-family: "Rubik Wet Paint", cursive;
+  height: 100px;
+  /* border: 1px solid black; */
+  border-radius: 15px;
+  background-color: lightgrey;
+}
