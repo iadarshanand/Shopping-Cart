@@ -5,7 +5,11 @@ const mongoose = require("mongoose");
 const productRoutes = require("./routes/product");
 const reviewRoutes = require("./routes/review");
 const authRoutes = require("./routes/auth");
+const cartRoutes = require("./routes/cart");
+const productApi = require("./routes/api/productapi");
 const ejsMate = require("ejs-mate");
+require("dotenv").config();
+
 const methodOverride = require("method-override");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -29,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(cookieParser());
 const sessionConfig = {
-  secret:process.env.session_secret ,
+  secret: process.env.session_secret,
   resave: true,
   saveUninitialized: true,
   cookie: {
@@ -62,6 +66,8 @@ app.get("/", (req, res) => {
 app.use(productRoutes);
 app.use(reviewRoutes);
 app.use(authRoutes);
+app.use(productApi);
+app.use(cartRoutes);
 
 const port = 3000;
 app.listen(port, () => {

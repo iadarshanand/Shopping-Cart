@@ -46,6 +46,7 @@ router.post(
 
 router.get("/logout", function (req, res) {
   req.logout();
+  delete req.session.previousUrl;
   req.flash("success", "logout successfully!!!");
   res.redirect("/products");
 });

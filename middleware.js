@@ -32,7 +32,12 @@ module.exports.validateReview = (req, res, next) => {
 };
 
 module.exports.isLogedIn = (req, res, next) => {
-  // console.log("Is loged in checked.....");
+  // console.log(req.xhr);
+  if (req.xhr && !req.isAuthenticated()) {
+    // delete req.originalUrl;
+    return res.status(401).json({ msg: "You need to log in first" });
+  }
+
   if (!req.isAuthenticated()) {
     req.flash("error", "You need to login first to get access this");
     // console.log(req.originalUrl);

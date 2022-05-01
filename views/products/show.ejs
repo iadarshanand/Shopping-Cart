@@ -21,9 +21,12 @@
           <a href="/products/<%=product._id%>" class="btn btn-sm btn-success"
             >Buy</a
           >
-          <a href="/products/<%=product._id%>" class="btn btn-sm btn-secondary"
-            >Add to Cart</a
-          >
+          <form action="/user/<%=product._id%>/add" method="POST">
+            <button type="submit" class="btn btn-sm btn-secondary">
+              Add to Cart
+            </button>
+          </form>
+
           <% if(product.author && currentUser &&
           product.author.equals(currentUser._id)){%>
           <a

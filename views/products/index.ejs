@@ -7,10 +7,10 @@
       <i class="fab fa-shopify" style="margin-right: 20px"></i>Shopping-Cart
     </h4>
   </section>
-  <div class="row">
+  <div class="row" id="card-list">
     <%for(let product of products){ %>
 
-    <div class="col-3 lg Products">
+    <div class="col-lg-3 col-md-6 Products">
       <div
         class="card shadow p-2 mb-5 bg-white rounded mx-auto"
         style="width: 20rem"
@@ -35,9 +35,13 @@
         <div class="card-body">
           <div class="d-flex justify-content-between">
             <h5 class="card-title"><%=product.name%></h5>
-            <!-- <button> -->
-            <i class="far fa-thin fa-heart"></i>
-            <!-- </button> -->
+            <span role="button" id="heart" product_id="<%=product._id%>">
+              <%if(currentUser && currentUser.wishlist.includes(product._id)){%>
+              <i class="fas fa-heart fa-lg text-danger"></i>
+              <%}else{%>
+              <i class="far fa-heart fa-lg"></i>
+              <%}%>
+            </span>
           </div>
 
           <p class="card-text fw-light">
@@ -60,3 +64,5 @@
     <%}%>
   </div>
 </div>
+
+<script src="/js/common.js"></script>

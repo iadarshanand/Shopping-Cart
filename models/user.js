@@ -11,6 +11,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "buyer",
   },
+  wishlist: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
+  cart: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
 });
 userSchema.plugin(passportLocalMongoose);
 const User = new mongoose.model("User", userSchema);
